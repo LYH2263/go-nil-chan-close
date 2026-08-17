@@ -1,6 +1,8 @@
 package chsafe
 
 func Close(ch chan struct{}) {
-	// BUG: no nil check
+	if ch == nil {
+		return
+	}
 	close(ch)
 }
